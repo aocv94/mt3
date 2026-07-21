@@ -595,7 +595,8 @@
 
   function projZones(){
     const k=(state.proj||'').trim().toLowerCase();
-    return ZONES[k]||['Zona 1','Zona 2','Zona 3'];
+    // Return empty array if no zones defined for this project
+    return ZONES[k] || [];
   }
   function buildChips(){
     const box=$('zoneChips'); box.innerHTML='';
