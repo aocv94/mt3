@@ -240,7 +240,7 @@
   <div class="foot">
     <div class="btn-row">
       <button class="btn btn-dark" id="btnPdf">Exportar PDF</button>
-      <button class="btn btn-ghost" id="btnShare" style="flex:0 0 80px">Compartir PDF</button>
+      <button class="btn btn-ghost" id="btnShare" style="flex:0 0 80px">Compartir</button>
       <button class="btn btn-ghost" id="btnClear" style="flex:0 0 80px">Limpiar</button>
     </div>
   </div>
@@ -785,7 +785,7 @@
     $('tallyNum').textContent=state.items.length;
     $('mastTitle').textContent=state.proj||'Informe de Visita de Obra';
     const e=$('entries');
-    if(!state.items.length){ e.innerHTML='<div class="empty"><strong>Sin elementos aún</strong>Tome una foto, edítela y escriba el comentario. Hágalo frente al problema.</div>'; return; }
+    if(!state.items.length){ e.innerHTML='<div class="empty"><strong>Sin elementos aún</strong>Tome una foto, edítela y escriba el comentario.</div>'; return; }
     e.innerHTML='';
     const list=ordered(); let lastZone=null;
     list.forEach(function(it){
