@@ -880,7 +880,8 @@
         doc.setFont('helvetica','bold'); doc.setFontSize(17); doc.setTextColor(245,244,241);
         doc.text('Informe de Visita de Obra', M, 78);
         doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(MARK[0],MARK[1],MARK[2]);
-        doc.text('REGISTRO DE OBSERVACIONES EN CAMPO', W-M, 78, {align:'right', charSpace:1.6});
+        doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(MARK[0],MARK[1],MARK[2]);
+        doc.text('REGISTRO DE OBSERVACIONES EN CAMPO', W-M, 78, {align:'right', charSpace:1.2});
       }else{
         doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(150,165,172);
         const t=proj+(state.ref?'   /   '+state.ref:'');
@@ -1011,9 +1012,14 @@
       doc.setPage(p);
       doc.setDrawColor(HAIR[0],HAIR[1],HAIR[2]); doc.line(M,H-50,W-M,H-50);
       doc.setFont('helvetica','normal'); doc.setFontSize(6.5); doc.setTextColor(150,158,166);
-      doc.text('Observaciones registradas durante una visita general de obra. No constituye una inspección exhaustiva ni una directiva para modificar alcance, cronograma o costo del contrato.',M,H-38);
-      doc.text('Ni la inclusión ni la omisión de un elemento constituye aprobación, aceptación o rechazo del Trabajo.',M,H-29);
-      doc.text('Página '+p+' de '+tot,W-M,H-29,{align:'right'});
+      // First disclaimer line - shorter, stays left
+      doc.text('Observaciones registradas durante una visita general de obra.', M, H-38);
+      doc.text('No constituye una inspección exhaustiva ni una directiva para modificar alcance, cronograma o costo del contrato.', M, H-30);
+      // Second disclaimer - shorter, stays left, leaves room for page number
+      doc.text('Ni la inclusión ni la omisión de un elemento constituye aprobación,', M, H-20);
+      doc.text('aceptación o rechazo del Trabajo.', M, H-12);
+      // Page number - clean on the right
+      doc.text('Página '+p+' de '+tot, W-M, H-12, {align:'right'});
     }
 
     return doc;
